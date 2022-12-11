@@ -5,5 +5,5 @@ Per tutti gli utenti di computer e/o smartphone che cucinano ma hanno poca creat
 A differenza di Cucina Botanica o Giallo Zafferano, la necessità di fare un’incursione al supermercato sarà ridotta al minimo.
 Il nostro prodotto permette a tutti quelli che si dimenticano di fare la spesa, di preparare qualcosa di semplice e gustoso con gli ingredienti che già si hanno in casa.
 
-wireframe
+ideazione wireframe attualmente in corso:
 https://app.uizard.io/p/1414d029
