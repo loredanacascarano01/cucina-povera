@@ -21,35 +21,12 @@ public class RicettaDataAccessService implements RicettaDao {
     }
 
     @Override
-    public int insertRicetta(UUID id, Ricetta ricetta) {
-        final String sql = "INSERT INTO Ricetta( id, name) VALUES ('" + id+ "', '" + ricetta.getName() + "')";
-        jdbcTemplate.update(sql);
+    public int insertRicetta(Ricetta ricetta) {
         return 0;
     }
 
     @Override
     public List<Ricetta> selectAllRicette() {
-        final String sql = "SELECT id, name FROM Ricetta";
-        List<Ricetta> ricette = jdbcTemplate.query(sql, (resultSet, i) -> {
-            UUID id = UUID.fromString(resultSet.getString("id"));
-            String name = resultSet.getString("name");
-            return new Ricetta(id, name);
-        });
-        return ricette;
-    }
-
-    @Override
-    public Optional<Ricetta> selectRicettaById(UUID id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public int deleteRicettaById(UUID id) {
-        return 0;
-    }
-
-    @Override
-    public int updateRicettaBy(UUID id, Ricetta ricetta) {
-        return 0;
+        return null;
     }
 }
