@@ -8,20 +8,40 @@ import java.util.UUID;
 public class Ricetta {
 
 
-    private final UUID id;
-    @NonNull
-    private final String name;
+    private int idRicetta;
+    private String nomeRicetta;
+    private Intolleranza intolleranza;
 
-    public Ricetta(@JsonProperty("id") UUID id, @NonNull @JsonProperty("name") String name) {
-        this.id = id;
-        this.name = name;
+    public Ricetta(int idRicetta, String nomeRicetta, Intolleranza intolleranza) {
+        this.idRicetta = idRicetta;
+        this.nomeRicetta = nomeRicetta;
+        this.intolleranza = intolleranza;
     }
 
-    public UUID getId() {
-        return id;
+    public Ricetta() {
     }
 
-    public String getName() {
-        return name;
+    public int getIdRicetta() {
+        return idRicetta;
+    }
+
+    public void setIdRicetta(int idRicetta) {
+        this.idRicetta = idRicetta;
+    }
+
+    public String getNomeRicetta() {
+        return nomeRicetta;
+    }
+
+    public void setNomeRicetta(String nomeRicetta) {
+        this.nomeRicetta = nomeRicetta;
+    }
+
+    public Intolleranza getIntolleranza() {
+        return intolleranza;
+    }
+
+    public void setIntolleranza(Intolleranza intolleranza) {
+        this.intolleranza = intolleranza;
     }
 }
