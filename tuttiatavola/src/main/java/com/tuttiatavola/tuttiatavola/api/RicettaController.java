@@ -30,18 +30,4 @@ public class RicettaController {
         return ricettaService.getAllRicette();
     }
 
-    @GetMapping(path = "{id}")
-    public Ricetta getRicettaByID(@PathVariable("id") UUID id){
-        return ricettaService.getRicettaById(id).orElse(null);
-    }
-
-    @DeleteMapping(path = "{id}")
-    public void deleteRicettaById(@PathVariable("id") UUID id){
-        ricettaService.deleteRicetta(id);
-    }
-
-    @PutMapping(path = "{id}")
-    public void udpateRicettaById(@PathVariable("id") UUID id, @NonNull @RequestBody Ricetta ricettaToUpdate){
-        ricettaService.updateRicette(id, ricettaToUpdate);
-    }
 }
