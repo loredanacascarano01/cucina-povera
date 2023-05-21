@@ -13,7 +13,7 @@ public class RicettaService {
     private final com.tuttiatavola.tuttiatavola.dao.RicettaDao ricettaDao;
 
     @Autowired
-    public RicettaService(@Qualifier("postgres") RicettaDao ricettaDao) {
+    public RicettaService(RicettaDao ricettaDao) {
         this.ricettaDao = ricettaDao;
     }
 
@@ -23,5 +23,9 @@ public class RicettaService {
 
     public List<Ricetta> getAllRicette(){
         return ricettaDao.selectAllRicette();
+    }
+
+    public Ricetta getRicettaById(int idRicetta){
+        return ricettaDao.getRicettaById(idRicetta);
     }
 }

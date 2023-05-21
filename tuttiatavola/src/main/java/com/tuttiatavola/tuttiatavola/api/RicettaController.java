@@ -28,4 +28,9 @@ public class RicettaController {
         return ricettaService.getAllRicette();
     }
 
+    @GetMapping("{id}")
+    public Ricetta selectRicettaById(@PathVariable int idRicetta){
+        return ricettaService.getRicettaById(idRicetta);
+    }
+
 }

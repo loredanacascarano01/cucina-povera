@@ -1,0 +1,11 @@
+app:
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:5432/tuttiatavola
+    username: postgres
+    password: password
+    pool-size: 30
+
+# Configurazione di Flyway
+  flyway:
+    enabled: true
+    locations: "/Users/loredanacascarano/Desktop/unicatt/TAW/tuttiatavola/src/main/resources/db/migration"
