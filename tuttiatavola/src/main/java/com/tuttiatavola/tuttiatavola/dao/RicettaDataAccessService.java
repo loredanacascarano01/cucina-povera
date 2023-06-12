@@ -21,7 +21,7 @@ public class RicettaDataAccessService implements RicettaDao {
 
     @Override
     public int insertRicetta(Ricetta ricetta) {
-        final String sql = "INSERT INTO ricette( id_ricetta, nome_ricetta) VALUES ('" + ricetta.getIdRicetta()+ "', '" + ricetta.getNomeRicetta() + "')";
+        final String sql = "INSERT INTO ricette( nome_ricetta) VALUES ('" + ricetta.getNomeRicetta() + "')";
         jdbcTemplate.update(sql);
         return 0;
     }
@@ -30,8 +30,9 @@ public class RicettaDataAccessService implements RicettaDao {
     public List<Ricetta> selectAllRicette() {
         final String sql = "SELECT * FROM ricette";
         List<Ricetta> people = jdbcTemplate.query(sql, (resultSet, i) -> {
+            int id = Integer.parseInt(resultSet.getString("id_ricetta"));
             String name = resultSet.getString("nome_ricetta");
-            return new Ricetta(0, name, null);
+            return new Ricetta( id, name, null);
         });
         return people;
     }
