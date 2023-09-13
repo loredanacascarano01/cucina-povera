@@ -37,18 +37,48 @@ CREATE TABLE INGREDIENTI (
                              note VARCHAR(255)
 );
 -- Creazione della tabella PORTATE
-CREATE TABLE portate (
-                         id_pasto INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE PORTATE (
+                         id_pasto INT NOT NULL ,
                          id_ricetta INT NOT NULL,
-                         num_persone INT NOT NULL,
-                         PRIMARY KEY (id_pasto)
+                         num_persone INT NOT NULL
 );
 
 -- Creazione della tabella CONTIENE
-CREATE TABLE contiene (
+CREATE TABLE CONTIENE (
                           id_ricetta INT NOT NULL,
                           id_ingrediente INT NOT NULL,
-                          quantita DECIMAL(10,2) NOT NULL,
-                          PRIMARY KEY (id_ricetta, id_ingrediente)
+                          quantita DECIMAL(10,2) NOT NULL
 );
+
+
+
+-- Inserimento di dati nelle tabelle
+INSERT INTO MENU (titolo, descrizione) VALUES
+    ('Vacanza a Santorini', 'Una vacanza in riva al mare a Santorini');
+
+INSERT INTO PASTI (id_menu, nome, giorno, note) VALUES
+                                                    (1, 'Cena primo giorno', '2023-08-26', ''),
+                                                    (1, 'Colazione secondo giorno', '2023-08-27', '');
+
+INSERT INTO RICETTE (nome_ricetta, note) VALUES
+                                             ('Pizza', 'Serve il forno'),
+                                             ('Pasta al pomodoro', '');
+
+INSERT INTO INGREDIENTI (nome_ingrediente, unita, veg, glutefree, lattosiofree, note) VALUES
+                                                                                          ('Farina', 'g', false, false, false, ''),
+                                                                                          ('Mozzarella', 'g', false, false, true, ''),
+                                                                                          ('Passata di pomodoro', 'ml', true, true, true, ''),
+                                                                                          ('Penne', 'g', true, false, true, '');
+
+INSERT INTO PORTATE (id_pasto, id_ricetta, num_persone) VALUES
+                                                            (1, 1, 20),
+                                                            (2, 2, 4);
+
+INSERT INTO CONTIENE (id_ricetta, id_ingrediente, quantita) VALUES
+                                                                (1, 1, 300),
+                                                                (1, 2, 100),
+                                                                (1, 3, 150),
+                                                                (2, 4, 80),
+                                                                (2, 3, 50);
+
 commit;
