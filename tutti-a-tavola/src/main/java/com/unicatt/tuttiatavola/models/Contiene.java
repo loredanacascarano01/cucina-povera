@@ -10,6 +10,7 @@ public class Contiene {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_contiene")
     private Long id;
 
     @ManyToOne

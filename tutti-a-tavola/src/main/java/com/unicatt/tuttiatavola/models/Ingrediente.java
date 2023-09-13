@@ -10,6 +10,7 @@ public class Ingrediente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_ingrediente")
     private Long id;
 
     private String nome;

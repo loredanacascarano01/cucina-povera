@@ -3,6 +3,12 @@ CREATE DATABASE tuttiatavola;
 commit;
 use tuttiatavola;
 -- Creazione della tabella MENU
+CREATE TABLE hibernate_sequence (
+                                    id INT NOT NULL AUTO_INCREMENT,
+                                    next_val BIGINT NOT NULL,
+                                    PRIMARY KEY (id)
+);
+
 CREATE TABLE MENU (
                       id_menu INT AUTO_INCREMENT PRIMARY KEY,
                       titolo VARCHAR(255),
@@ -82,3 +88,6 @@ INSERT INTO CONTIENE (id_ricetta, id_ingrediente, quantita) VALUES
                                                                 (2, 3, 50);
 
 commit;
+ALTER TABLE PORTATE ADD COLUMN id_portata INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+
+ALTER TABLE CONTIENE ADD COLUMN id_contiene INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
