@@ -18,27 +18,27 @@ public class MenuController {
     MenuService menuService;
 
     @GetMapping()
-    public ResponseEntity<List<Menu>> retrieveMenus(){
+    public ResponseEntity<List<MenuRequest>> retrieveMenus(){
         return ResponseEntity.ok(menuService.recuperaMenu());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Menu> retrieveMenu(@PathVariable Long id){
+    public ResponseEntity<MenuRequest> retrieveMenu(@PathVariable Long id){
         return ResponseEntity.ok(menuService.recuperaMenu(id));
     }
 
     @PostMapping()
-    public ResponseEntity<Menu> addMenu(@RequestBody MenuRequest menu){
+    public ResponseEntity<MenuRequest> addMenu(@RequestBody MenuRequest menu){
         return ResponseEntity.ok(menuService.aggiungiMenu(menu));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Menu> updateMenu(@PathVariable Long id, @RequestBody Menu menu){
+    public ResponseEntity<MenuRequest> updateMenu(@PathVariable Long id, @RequestBody MenuRequest menu){
         return null;
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Menu> updateMenu(@PathVariable Long id){
+    public ResponseEntity<MenuRequest> deleteMenu(@PathVariable Long id){
         return null;
     }
 

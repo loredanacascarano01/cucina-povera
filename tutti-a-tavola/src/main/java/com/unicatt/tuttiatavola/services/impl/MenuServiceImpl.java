@@ -12,6 +12,7 @@ import com.unicatt.tuttiatavola.services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,17 +30,40 @@ public class MenuServiceImpl implements MenuService {
     RicettaRepository ricettaRepository;
 
     @Override
-    public List<Menu> recuperaMenu() {
-        return menuRepository.findAll();
+    public List<MenuRequest> recuperaMenu() {
+        List<MenuRequest> response = new ArrayList<>();
+        List<Menu> all = menuRepository.findAll();
+        for (Menu menu : all) {
+            response.add(recuperaMenuRequest(menu));
+        }
+
+        return response;
+    }
+
+    private MenuRequest recuperaMenuRequest(Menu menu) {
+        MenuRequest menuRequest = new MenuRequest(menu.getTitolo(), menu.getDescrizione());
+        List<Pasto> pasti = pastoRepository.findAllByIdMenu(menu.getId());
+        for (Pasto pasto : pasti) {
+            PastoRequest pastoRequest = new PastoRequest(pasto.getNome(), pasto.getGiorno(), pasto.getNote());
+            List<Portata> portate = portataRepository.findAllByIdPasto(pasto.getId());
+            for (Portata portata : portate) {
+                PortataRequest portataRequest = new PortataRequest(portata.getRicetta(), portata.getNumPersone());
+                pastoRequest.getPortate().add(portataRequest);
+            }
+            menuRequest.getPasti().add(pastoRequest);
+        }
+        return menuRequest;
     }
 
     @Override
-    public Menu recuperaMenu(Long id) {
-        return menuRepository.findById(id).orElse(null);
+    public MenuRequest recuperaMenu(Long id) {
+        Menu menu = menuRepository.findById(id).orElse(null);
+        return menu != null ? recuperaMenuRequest(menu) : null;
+
     }
 
     @Override
-    public Menu aggiungiMenu(MenuRequest menuRequest) {
+    public MenuRequest aggiungiMenu(MenuRequest menuRequest) {
         // Crea un nuovo menu con i dati del menuRequest
         Menu menu = new Menu(menuRequest.getTitolo(), menuRequest.getDescrizione());
         // Salva il menu nel repository
@@ -53,14 +77,14 @@ public class MenuServiceImpl implements MenuService {
             // Crea una nuova portata per ogni portataRequest nel pastoRequest
             for (PortataRequest portataRequest : pastoRequest.getPortate()) {
                 Ricetta ricetta = ricettaRepository.findById(portataRequest.getIdRicetta()).orElse(null);
-                if(ricetta != null) {
+                if (ricetta != null) {
                     portataRepository.save(new Portata(pastoSalvato, ricetta, portataRequest.getNumeroPersone()));
                 }
             }
         }
 
         // Ritorna il menu salvato
-        return menuSalvato;
+        return menuRequest;
     }
 
 }

@@ -15,4 +15,10 @@ public class PastoRequest {
     private Date giorno;
     private String note;
     private List<PortataRequest> portate;
+
+    public PastoRequest(String nome, Date giorno, String note) {
+        this.nome = nome;
+        this.giorno= giorno;
+        this.nome = note;
+    }
 }
