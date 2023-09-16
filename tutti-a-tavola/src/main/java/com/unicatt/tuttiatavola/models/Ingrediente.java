@@ -13,6 +13,7 @@ public class Ingrediente {
     @Column(name="id_ingrediente")
     private Long id;
 
+    @Column(name="nome_ingrediente")
     private String nome;
 
     private String unita;

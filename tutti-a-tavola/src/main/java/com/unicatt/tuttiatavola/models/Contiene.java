@@ -1,9 +1,12 @@
 package com.unicatt.tuttiatavola.models;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 
+@Data
 @Entity
 @Table(name = "contiene")
 public class Contiene {
@@ -21,6 +24,6 @@ public class Contiene {
     @JoinColumn(name = "id_ingrediente")
     private Ingrediente ingrediente;
 
-    private BigDecimal quantita;
+    private Long quantita;
 
 }

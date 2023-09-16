@@ -1,35 +1,25 @@
 package com.unicatt.tuttiatavola.controllers;
 
-import com.unicatt.tuttiatavola.models.Ingrediente;
+import com.unicatt.tuttiatavola.models.presentation.ElementoSpesa;
+import com.unicatt.tuttiatavola.services.IngredienteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/ingredienti")
 public class IngredienteController {
+    @Autowired
+    private IngredienteService ingredienteService;
 
-    @GetMapping()
-    public ResponseEntity<List<Ingrediente>> retrieveIngredientes(){
-        return null;
+    @GetMapping("/listamenu")
+    public ResponseEntity<List<ElementoSpesa>> listaSpesaPerMenu(@RequestParam Long idMenu) {
+        return ResponseEntity.ok(ingredienteService.calcolaListaSpesaDalMenu(idMenu));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Ingrediente> retrieveIngrediente(@PathVariable Long id){
-        return null;
-    }
-
-    @PostMapping()
-    public ResponseEntity<Ingrediente> addIngrediente(@RequestBody Ingrediente Ingrediente){
-        return null;
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Ingrediente> updateIngrediente(@PathVariable Long id, @RequestBody Ingrediente Ingrediente){
-        return null;
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Ingrediente> updateIngrediente(@PathVariable Long id){
-        return null;
-    }
 }

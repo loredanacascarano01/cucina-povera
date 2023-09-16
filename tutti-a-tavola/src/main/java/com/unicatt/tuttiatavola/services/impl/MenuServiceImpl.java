@@ -42,16 +42,21 @@ public class MenuServiceImpl implements MenuService {
 
     private MenuRequest recuperaMenuRequest(Menu menu) {
         MenuRequest menuRequest = new MenuRequest(menu.getTitolo(), menu.getDescrizione());
-        List<Pasto> pasti = pastoRepository.findAllByIdMenu(menu.getId());
+        List<Pasto> pasti = pastoRepository.findAll().stream().filter(pasto -> pasto.getMenu().getId() == menu.getId()).toList();
+        List<PastoRequest> pastiRequest = new ArrayList<>();
         for (Pasto pasto : pasti) {
             PastoRequest pastoRequest = new PastoRequest(pasto.getNome(), pasto.getGiorno(), pasto.getNote());
-            List<Portata> portate = portataRepository.findAllByIdPasto(pasto.getId());
+            List<Portata> portate = portataRepository.findAll().stream().filter(portata -> portata.getPasto().getId() == pasto.getId()).toList();
+            List<PortataRequest> portateRequest = new ArrayList<>();
             for (Portata portata : portate) {
                 PortataRequest portataRequest = new PortataRequest(portata.getRicetta(), portata.getNumPersone());
-                pastoRequest.getPortate().add(portataRequest);
+                portateRequest.add(portataRequest);
             }
-            menuRequest.getPasti().add(pastoRequest);
+            pastoRequest.setPortate(portateRequest);
+
+            pastiRequest.add(pastoRequest);
         }
+        menuRequest.setPasti(pastiRequest);
         return menuRequest;
     }
 
