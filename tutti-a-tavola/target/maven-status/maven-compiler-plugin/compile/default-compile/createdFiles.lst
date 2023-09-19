@@ -2,6 +2,7 @@ com/unicatt/tuttiatavola/repositories/PortataRepository.class
 com/unicatt/tuttiatavola/repositories/PastoRepository.class
 com/unicatt/tuttiatavola/models/presentation/MenuRequest.class
 com/unicatt/tuttiatavola/TuttiATavolaApplication.class
+com/unicatt/tuttiatavola/config/CorsConfig.class
 com/unicatt/tuttiatavola/models/Ricetta.class
 com/unicatt/tuttiatavola/models/presentation/ElementoSpesa.class
 com/unicatt/tuttiatavola/services/impl/MenuServiceImpl.class

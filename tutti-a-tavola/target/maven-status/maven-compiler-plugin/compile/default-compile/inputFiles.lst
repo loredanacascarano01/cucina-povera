@@ -21,6 +21,7 @@
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/repositories/ContieneRepository.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/models/Pasto.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/models/presentation/ElementoSpesa.java
+/Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/config/CorsConfig.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/services/impl/IngredienteServiceImpl.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/services/MenuService.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/services/ContieneService.java
