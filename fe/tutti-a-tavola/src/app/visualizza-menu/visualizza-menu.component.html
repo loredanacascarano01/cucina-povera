@@ -1,1 +1,31 @@
-<p>visualizza-menu works!</p>
+<div *ngIf="menus">
+  <ul>
+    <li *ngFor="let menu of menus">
+      <h2>{{ menu.titolo }}</h2>
+      <p>{{ menu.descrizione }}</p>
+
+      <h3>Pasti</h3>
+      <ul *ngIf="menu.pasti && menu.pasti.length > 0">
+        <li *ngFor="let pasto of menu.pasti">
+          <p><strong>Nome del pasto:</strong> {{ pasto.nome }}</p>
+          <p><strong>Data:</strong> {{ pasto.giorno }}</p>
+
+          <h4>Portate</h4>
+          <ul *ngIf="pasto.portate && pasto.portate.length > 0">
+            <li *ngFor="let portata of pasto.portate">
+              <p><strong>Nome della portata:</strong> {{ portata.nomeRicetta }}</p>
+              <p><strong>Numero di persone:</strong> {{ portata.numeroPersone }}</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div *ngIf="!menu.pasti || menu.pasti.length === 0">
+        <p>Nessun pasto disponibile.</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!menus">
+  <p>Caricamento in corso...</p>
+</div>

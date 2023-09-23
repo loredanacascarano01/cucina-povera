@@ -13,6 +13,7 @@ export interface Pasto {
 }
 
 export interface Portata {
+  idRicetta: number
   nomeRicetta: string;
   numeroPersone: number;
 }
