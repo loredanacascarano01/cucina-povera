@@ -1,18 +1,37 @@
-/* visualizza-menu.component.scss */
-
 ul {
   list-style-type: none;
-  /* Rimuove i pallini dall'elenco */
   padding: 0;
-  /* Rimuove il padding predefinito dell'elenco */
   margin: 0;
-  /* Rimuove il margine predefinito dell'elenco */
 }
 
-/* Stile per i titoli dei menu */
 h2 {
   cursor: pointer;
-  /* Cambia il cursore al passaggio sopra il titolo */
   margin-bottom: 10px;
-  /* Spazio tra i titoli */
+}
+
+.scheda-lista-spesa {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  max-width: 400px;
+  width: 100%;
+}
+
+.scheda-lista-spesa button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.scheda-lista-spesa button:hover {
+  background-color: #0056b3;
 }

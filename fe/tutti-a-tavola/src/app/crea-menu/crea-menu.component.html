@@ -1,1 +1,64 @@
-<p>crea-menu works!</p>
+<div class="container">
+  <h2>Crea un nuovo menu</h2>
+
+  <form (submit)="creaMenu()">
+    <!-- Titolo del menu -->
+    <div class="form-group">
+      <label for="titolo">Titolo:</label>
+      <input type="text" id="titolo" name="titolo" [(ngModel)]="nuovoMenu.titolo" required />
+    </div>
+
+    <!-- Descrizione del menu -->
+    <div class="form-group">
+      <label for="descrizione">Descrizione:</label>
+      <textarea id="descrizione" name="descrizione" [(ngModel)]="nuovoMenu.descrizione" required></textarea>
+    </div>
+
+    <!-- Pasti -->
+    <div class="form-group">
+      <h3>Pasti:</h3>
+      <div *ngFor="let pasto of nuovoMenu.pasti; let i = index" class="pasto">
+        <label for="nomePasto">Nome Pasto:</label>
+        <input type="text" id="nomePasto" name="nomePasto" [(ngModel)]="pasto.nome" required />
+
+        <label for="giornoPasto">Data:</label>
+        <input type="date" id="giornoPasto" name="giornoPasto" [(ngModel)]="pasto.giorno" required />
+
+        <h4>Portate:</h4>
+        <div *ngFor="let portata of pasto.portate; let j = index" class="portata">
+          <label for="ricettaPortata">Ricetta Portata:</label>
+          <select id="ricettaPortata" name="ricettaPortata" [(ngModel)]="portata.idRicetta" required>
+            <option value="" disabled selected>Scegli una ricetta</option>
+            <option *ngFor="let ricetta of ricette" [value]="ricetta.id">
+              {{ ricetta.nome }}
+            </option>
+          </select>
+
+          <label for="numeroPersone">Numero Persone:</label>
+          <input type="number" id="numeroPersone" name="numeroPersone" [(ngModel)]="portata.numeroPersone" required>
+
+          <button type="button" (click)="rimuoviPortata(i, j)">
+            Rimuovi Portata
+          </button>
+        </div>
+
+        <button type="button" (click)="aggiungiPortata(i)">
+          Aggiungi Portata
+        </button>
+      </div>
+
+      <button type="button" (click)="aggiungiPasto()">Aggiungi Pasto</button>
+    </div>
+
+    <!-- Messaggio di conferma -->
+    <div class="form-group">
+      <input type="submit" value="Crea Menu" class="btn btn-primary" />
+      <button type="button" class="btn btn-default" (click)="reset()">Annulla</button>
+    </div>
+
+    <!-- Validazione del campo "Numero Persone" -->
+    <div *ngIf="numeroPersoneInvalid">
+      <p class="text-danger">Il numero di persone deve essere un numero maggiore o uguale a 1.</p>
+    </div>
+  </form>
+</div>

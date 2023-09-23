@@ -1,5 +1,5 @@
 export interface Menu {
-  idMenu: number,
+  idMenu: number;
   titolo: string;
   descrizione: string;
   pasti: Pasto[];
@@ -13,7 +13,17 @@ export interface Pasto {
 }
 
 export interface Portata {
-  idRicetta: number
+  idRicetta: number;
   nomeRicetta: string;
   numeroPersone: number;
+}
+export interface ElementoSpesa {
+  nomeIngrediente: string;
+  quantitaMinima: number;
+  udm: string;
+}
+
+export interface Ricetta {
+  id: number;
+  nome: string;
 }

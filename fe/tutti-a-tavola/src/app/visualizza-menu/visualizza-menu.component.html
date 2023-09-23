@@ -3,6 +3,7 @@
     <li *ngFor="let menu of menus">
       <h2 (click)="mostraDettagli(menu)">{{ menu.titolo }}</h2>
       <button (click)="cancellaMenu(menu)">Cancella</button>
+      <button (click)="listaSpesaMenu(menu)">Lista Spesa</button>
       <div *ngIf="menuSelezionato === menu">
         <h3>Dettagli del Menu</h3>
         <p><strong>Titolo:</strong> {{ menu.titolo }}</p>
@@ -35,3 +36,14 @@
 <div *ngIf="!menus">
   <p>Caricamento in corso...</p>
 </div>
+
+<div *ngIf="mostraSchedaListaSpesa" class="scheda-lista-spesa">
+  <h3>Lista Spesa</h3>
+  <ul>
+    <li *ngFor="let voce of listaSpesa">
+      {{ voce.nomeIngrediente }} - {{ voce.quantitaMinima }}{{ voce.udm }}
+    </li>
+  </ul>
+  <button (click)="nascondiListaSpesa()">Chiudi</button>
+</div>
+
