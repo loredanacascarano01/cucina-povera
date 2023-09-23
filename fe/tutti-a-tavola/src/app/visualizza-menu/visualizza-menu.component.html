@@ -1,4 +1,4 @@
-<div *ngIf="menus" >
+<div *ngIf="menus">
   <ul>
     <li *ngFor="let menu of menus">
       <h2 (click)="mostraDettagli(menu)">{{ menu.titolo }}</h2>
@@ -12,7 +12,6 @@
         <h3>Pasti</h3>
         <ul *ngIf="menu.pasti && menu.pasti.length > 0">
           <li *ngFor="let pasto of menu.pasti">
-            <p><strong>Nome del pasto:</strong> {{ pasto.nome }}</p>
             <p><strong>Data:</strong> {{ pasto.giorno }}</p>
 
             <h4>Portate</h4>
@@ -46,4 +45,3 @@
   </ul>
   <button (click)="nascondiListaSpesa()">Chiudi</button>
 </div>
-

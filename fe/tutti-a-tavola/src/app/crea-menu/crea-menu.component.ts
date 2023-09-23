@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Portata, Ricetta } from '../models/menu.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crea-menu',
@@ -11,13 +12,14 @@ export class CreaMenuComponent implements OnInit {
   portata: Portata[] = [];
   ricette: any;
   numeroPersoneInvalid: boolean = false;
+  menuInviato: boolean = true;
   nuovoMenu: any = {
     titolo: '',
     descrizione: '',
     pasti: [],
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.http
@@ -94,7 +96,11 @@ export class CreaMenuComponent implements OnInit {
 
     this.http
       .post('http://localhost:8080/api/menu', menuDaInviare)
-      .subscribe((response) => {});
+      .subscribe((response) => {
+        this.menuInviato = true;
+
+        this.router.navigate(['/']);
+      });
   }
 
   reset() {
