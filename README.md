@@ -1,5 +1,3 @@
-Certamente! Ecco il testo formattato per il tuo file `README.md`:
-
 ```markdown
 # Configurazione del Progetto in Locale
 
