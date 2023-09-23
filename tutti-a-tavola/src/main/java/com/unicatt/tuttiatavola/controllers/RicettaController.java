@@ -1,16 +1,24 @@
 package com.unicatt.tuttiatavola.controllers;
 
 import com.unicatt.tuttiatavola.models.Ricetta;
+import com.unicatt.tuttiatavola.services.RicettaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/ricette")
+
+@CrossOrigin(origins = "http://localhost:4200")
 public class RicettaController {
 
+    @Autowired
+    RicettaService ricettaService;
     @GetMapping()
     public ResponseEntity<List<Ricetta>> retrieveRicettas(){
-        return null;
+        return ResponseEntity.ok(ricettaService.recuperaTutteLeRicette());
     }
 
     @GetMapping("/{id}")

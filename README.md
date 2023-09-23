@@ -1,11 +1,3 @@
-API implementate
-
-GET /menu**: Restituisce l'elenco di tutti i menu disponibili.
-GET /menu/{id}**: Restituisce i dettagli di un menu specifico.
-POST /menu**: Crea un nuovo menu.
-GET /ricette**: Restituisce l'elenco di tutte le ricette disponibili.
-GET /ingredienti/listamenu/?idMenu={id}** Restituisce la lista della spesa di un menu
-
 
 1. **API per Menu e Pasti**:
     - **GET /menu**: Restituisce l'elenco di tutti i menu disponibili.

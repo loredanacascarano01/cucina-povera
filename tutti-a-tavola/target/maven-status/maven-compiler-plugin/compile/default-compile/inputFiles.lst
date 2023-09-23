@@ -6,6 +6,7 @@
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/repositories/PortataRepository.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/services/impl/MenuServiceImpl.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/services/PortataService.java
+/Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/services/impl/RicettaServiceImpl.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/models/Contiene.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/services/IngredienteService.java
 /Users/loredanacascarano/Sviluppi/cucina-povera/tutti-a-tavola/src/main/java/com/unicatt/tuttiatavola/models/presentation/MenuRequest.java

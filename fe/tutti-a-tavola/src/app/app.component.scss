@@ -1,0 +1,54 @@
+// Definisci il colore principale giallo ocra
+$giallo-ocra: #FFD700;
+
+// Font tradizionale
+$font-tradizionale: 'Times New Roman', Times, serif;
+
+// Stile degli elementi di navigazione
+$colore-navigazione: darken($giallo-ocra, 10%);
+
+body {
+  background-color: #f5f5f5; // Sfondo generale
+  font-family: $font-tradizionale;
+}
+
+.header {
+  background-color: $giallo-ocra;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  // Aggiungi una texture di legno come sfondo
+  background-image: url('/app/immagini/45-Wood-Textures.jpeg');
+}
+
+.button {
+  background-color: $giallo-ocra;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; // Aggiungi un'animazione di transizione al passaggio del mouse
+}
+
+.button:hover {
+  background-color: darken($giallo-ocra, 20%);
+}
+
+.icon {
+  font-size: 24px;
+  color: $giallo-ocra;
+}
+
+.list-item {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  // Aggiungi un bordo in stile legno intagliato
+  border-image: url('/immagini/cucina.png');
+  border-image-slice: 50%;
+  border-image-repeat: round;
+}
+
+// Aggiungi altri stili per icone, immagini e altri elementi secondo necessità

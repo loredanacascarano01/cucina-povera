@@ -41,7 +41,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     private MenuRequest recuperaMenuRequest(Menu menu) {
-        MenuRequest menuRequest = new MenuRequest(menu.getTitolo(), menu.getDescrizione());
+        MenuRequest menuRequest = new MenuRequest(menu.getId(), menu.getTitolo(), menu.getDescrizione());
         List<Pasto> pasti = pastoRepository.findAll().stream().filter(pasto -> pasto.getMenu().getId() == menu.getId()).toList();
         List<PastoRequest> pastiRequest = new ArrayList<>();
         for (Pasto pasto : pasti) {
