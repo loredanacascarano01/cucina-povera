@@ -34,19 +34,20 @@ public class IngredienteServiceImpl implements IngredienteService {
 
         MenuRequest menu = menuService.recuperaMenu(idMenu);
         Map<Ingrediente, Double> ingredientiEQuantita = new HashMap<>();
+        if (menu != null) {
+            for (PastoRequest pasto : menu.getPasti()) {
+                for (PortataRequest portataRequest : pasto.getPortate()) {
 
-        for (PastoRequest pasto : menu.getPasti()) {
-            for (PortataRequest portataRequest : pasto.getPortate()) {
 
+                    List<Contiene> contiene = contieneRepository.findAll().stream().filter(portata -> portata.getRicetta().getId() == portataRequest.getIdRicetta()).toList();
 
-                List<Contiene> contiene = contieneRepository.findAll().stream().filter(portata -> portata.getRicetta().getId() == portataRequest.getIdRicetta()).toList();
-
-                for (Contiene c : contiene) {
-                    Ingrediente ingrediente = c.getIngrediente();
-                    Double quantita = Double.valueOf(c.getQuantita());
-                    double value = ingredientiEQuantita.getOrDefault(ingrediente, Double.valueOf(0));
-                    double quantitaPerPasto = quantita * portataRequest.getNumeroPersone();
-                    ingredientiEQuantita.put(ingrediente, value + quantitaPerPasto);
+                    for (Contiene c : contiene) {
+                        Ingrediente ingrediente = c.getIngrediente();
+                        Double quantita = Double.valueOf(c.getQuantita());
+                        double value = ingredientiEQuantita.getOrDefault(ingrediente, Double.valueOf(0));
+                        double quantitaPerPasto = quantita * portataRequest.getNumeroPersone();
+                        ingredientiEQuantita.put(ingrediente, value + quantitaPerPasto);
+                    }
                 }
             }
         }
