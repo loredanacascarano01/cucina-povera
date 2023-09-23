@@ -1,4 +1,4 @@
-<div *ngIf="menus">
+<div *ngIf="menus" >
   <ul>
     <li *ngFor="let menu of menus">
       <h2 (click)="mostraDettagli(menu)">{{ menu.titolo }}</h2>
@@ -30,6 +30,7 @@
     </li>
   </ul>
 </div>
+<div *ngIf="!menus || menus.length === 0">Nessun pasto trovato</div>
 
 <div *ngIf="!menus">
   <p>Caricamento in corso...</p>
