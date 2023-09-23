@@ -1,0 +1,5 @@
+# Ignora i file delle classi generate da IntelliJ IDEA
+*.iml
+.idea/
+out/
+target/
