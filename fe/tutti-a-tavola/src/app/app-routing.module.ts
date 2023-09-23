@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { VisualizzaMenuComponent } from './visualizza-menu/visualizza-menu.component'; // Sostituisci con il tuo componente per visualizzare i menu salvati
 import { CreaMenuComponent } from './crea-menu/crea-menu.component';
 import { HomepageComponent } from './homepage/homepage.component';
