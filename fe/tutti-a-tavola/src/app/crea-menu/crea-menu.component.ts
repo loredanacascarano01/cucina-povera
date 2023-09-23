@@ -42,7 +42,7 @@ export class CreaMenuComponent implements OnInit {
 
   aggiungiPortata(indexPasto: number) {
     this.nuovoMenu.pasti[indexPasto].portate.push({
-      idRicetta: 0, // Inizializzato a 0
+      idRicetta: 0,
       numeroPersone: 0,
     });
   }
@@ -52,23 +52,19 @@ export class CreaMenuComponent implements OnInit {
   }
 
   creaMenu() {
-    // Verifica che l'id della ricetta sia un numero valido
     if (this.nuovoMenu.pasti.length === 0) {
-      // Mostra un messaggio di errore
       console.log('Devi aggiungere almeno un pasto.');
       return;
     }
 
     for (const pasto of this.nuovoMenu.pasti) {
       if (pasto.portate.length === 0) {
-        // Mostra un messaggio di errore
         console.log('Ogni pasto deve avere almeno una portata.');
         return;
       }
 
       for (const portata of pasto.portate) {
         if (portata.idRicetta < 1) {
-          // Mostra un messaggio di errore
           console.log("L'id della ricetta deve essere un numero positivo.");
           return;
         }
@@ -80,7 +76,6 @@ export class CreaMenuComponent implements OnInit {
       }
     }
 
-    // Crea l'oggetto JSON per l'invio
     const menuDaInviare = {
       titolo: this.nuovoMenu.titolo,
       descrizione: this.nuovoMenu.descrizione,
@@ -97,12 +92,9 @@ export class CreaMenuComponent implements OnInit {
     };
     console.log(this.nuovoMenu.pasti);
 
-    // Invia il menu tramite richiesta HTTP POST
     this.http
       .post('http://localhost:8080/api/menu', menuDaInviare)
-      .subscribe((response) => {
-        // Gestisci la risposta dal server
-      });
+      .subscribe((response) => {});
   }
 
   reset() {
