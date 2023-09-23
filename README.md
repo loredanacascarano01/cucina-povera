@@ -1,49 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurazione del Progetto in Locale</title>
-</head>
-<body>
-    <h1>Configurazione del Progetto in Locale</h1>
-    
-    <h2>Passi per il Setup del Progetto</h2>
-    
-    <ol>
-        <li>Scaricare il repository in locale digitando nella cartella dove si vuole salvare il progetto:</li>
-        <code>git clone https://github.com/loredanacascarano01/cucina-povera.git</code>
-        <li>Il backend si trova nella cartella <code>tutti-a-tavola</code>.</li>
-        <li>Il frontend si trova nella cartella <code>fe/tutti-a-tavola</code>.</li>
-    </ol>
+Certamente! Ecco il testo formattato per il tuo file `README.md`:
 
-    <h2>Prerequisiti</h2>
-    
-    <ul>
-        <li>Aver eseguito gli script <code>tutti-a-tavola/src/main/resources/db/inizializzazione.sql</code></li>
-        <li>Aver inserito in <code>application.properties</code> (<code>tutti-a-tavola/src/main/resources/application.properties</code>) i parametri della propria connessione.</li>
-        <li>Assicurarsi che MySql Server sia in running.</li>
-        <li>Avere Java 17 installato e avere le relative variabili d'ambiente (del path) aggiornate alla versione 17.</li>
-    </ul>
+```markdown
+# Configurazione del Progetto in Locale
 
-    <h2>Compilazione e Deploy del Backend</h2>
-    
-    <ol>
-        <li>Posizionarsi nella cartella <code>tutti-a-tavola</code> e digitare:</li>
-        <code>mvn clean install -U</code>
-        <code>mvn spring-boot:run</code>
-    </ol>
+Questo documento fornisce istruzioni per configurare e avviare il progetto in locale. Assicurati di seguire attentamente i passaggi descritti di seguito.
 
-    <h2>Compilazione e Deploy del Frontend</h2>
-    
-    <ol>
-        <li>Posizionarsi nella cartella <code>fe/tutti-a-tavola</code> e digitare:</li>
-        <code>ng build</code>
-        <code>ng serve</code>
-    </ol>
+## Passi per il Setup del Progetto
 
-    <h2>Visualizzare il Progetto</h2>
-    
-    <p>Andare da un browser su <code>localhost:4200</code></p>
-</body>
-</html>
+1. Scaricare il repository in locale digitando nella cartella dove si vuole salvare il progetto:
+   ```bash
+   git clone https://github.com/loredanacascarano01/cucina-povera.git
+   ```
+
+2. Il backend si trova nella cartella `tutti-a-tavola`.
+
+3. Il frontend si trova nella cartella `fe/tutti-a-tavola`.
+
+## Prerequisiti
+
+Prima di procedere, assicurati di soddisfare i seguenti prerequisiti:
+
+- Aver eseguito gli script `tutti-a-tavola/src/main/resources/db/inizializzazione.sql`.
+
+- Aver inserito in `application.properties` (`tutti-a-tavola/src/main/resources/application.properties`) i parametri della propria connessione.
+
+- Assicurarsi che MySql Server sia in esecuzione.
+
+- Avere Java 17 installato e avere le relative variabili d'ambiente (del path) aggiornate alla versione 17.
+
+## Compilazione e Deploy del Backend
+
+Per compilare e avviare il backend, segui questi passaggi:
+
+1. Posizionarsi nella cartella `tutti-a-tavola` e digitare:
+
+   ```bash
+   mvn clean install -U
+   mvn spring-boot:run
+   ```
+
+## Compilazione e Deploy del Frontend
+
+Per compilare e avviare il frontend, esegui i seguenti comandi:
+
+1. Posizionarsi nella cartella `fe/tutti-a-tavola` e digitare:
+
+   ```bash
+   ng build
+   ng serve
+   ```
+
+## Visualizzare il Progetto
+
+Dopo aver seguito tutti i passaggi, apri un browser e visita `http://localhost:4200`.
+
