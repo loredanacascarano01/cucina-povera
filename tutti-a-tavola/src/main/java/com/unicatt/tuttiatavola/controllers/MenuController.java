@@ -2,6 +2,7 @@ package com.unicatt.tuttiatavola.controllers;
 
 
 import com.unicatt.tuttiatavola.models.Menu;
+import com.unicatt.tuttiatavola.models.Response;
 import com.unicatt.tuttiatavola.models.presentation.MenuRequest;
 import com.unicatt.tuttiatavola.services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +41,8 @@ public class MenuController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MenuRequest> deleteMenu(@PathVariable Long id){
-        return null;
+    public ResponseEntity<Response> deleteMenu(@PathVariable Long id){
+        return ResponseEntity.ok(menuService.cancellaMenu(id));
     }
 
 

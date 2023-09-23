@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -27,6 +30,9 @@ public class Pasto {
     private Date giorno;
 
     private String note;
+
+    @OneToMany(mappedBy = "pasto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Portata> portate = new ArrayList<>();
 
 
     public Pasto(Menu menu, String nome, Date giorno, String note) {

@@ -1,19 +1,20 @@
 package com.unicatt.tuttiatavola.services.impl;
 
-import com.unicatt.tuttiatavola.models.Menu;
-import com.unicatt.tuttiatavola.models.Pasto;
-import com.unicatt.tuttiatavola.models.Portata;
-import com.unicatt.tuttiatavola.models.Ricetta;
+import com.unicatt.tuttiatavola.models.*;
 import com.unicatt.tuttiatavola.models.presentation.MenuRequest;
 import com.unicatt.tuttiatavola.models.presentation.PastoRequest;
 import com.unicatt.tuttiatavola.models.presentation.PortataRequest;
 import com.unicatt.tuttiatavola.repositories.*;
 import com.unicatt.tuttiatavola.services.MenuService;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Service
 public class MenuServiceImpl implements MenuService {
@@ -25,6 +26,7 @@ public class MenuServiceImpl implements MenuService {
     PortataRepository portataRepository;
     @Autowired
     ContieneRepository contieneRepository;
+    private static final Logger logger = LoggerFactory.getLogger(MenuServiceImpl.class);
 
     @Autowired
     RicettaRepository ricettaRepository;
@@ -69,17 +71,14 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public MenuRequest aggiungiMenu(MenuRequest menuRequest) {
-        // Crea un nuovo menu con i dati del menuRequest
+
         Menu menu = new Menu(menuRequest.getTitolo(), menuRequest.getDescrizione());
-        // Salva il menu nel repository
+
         Menu menuSalvato = menuRepository.save(menu);
-        // Crea un nuovo pasto per ogni pastoRequest nel menuRequest
         for (PastoRequest pastoRequest : menuRequest.getPasti()) {
             Pasto pasto = new Pasto(menuSalvato, pastoRequest.getNome(), pastoRequest.getGiorno(), pastoRequest.getNote());
-            // Salva il pasto nel repository
-            Pasto pastoSalvato = pastoRepository.save(pasto);
 
-            // Crea una nuova portata per ogni portataRequest nel pastoRequest
+            Pasto pastoSalvato = pastoRepository.save(pasto);
             for (PortataRequest portataRequest : pastoRequest.getPortate()) {
                 Ricetta ricetta = ricettaRepository.findById(portataRequest.getIdRicetta()).orElse(null);
                 if (ricetta != null) {
@@ -88,8 +87,24 @@ public class MenuServiceImpl implements MenuService {
             }
         }
 
-        // Ritorna il menu salvato
         return menuRequest;
+    }
+
+    @Override
+    public Response cancellaMenu(Long idMenu) {
+        boolean esito;
+        String message;
+        try {
+            menuRepository.deleteById(idMenu);
+            esito = Boolean.TRUE;
+            message = "menù " + idMenu + " cancellato con successo.";
+
+        }catch (Exception e){
+            esito =  Boolean.FALSE;
+            message = "ERRORE nella cancellazione menù "+ idMenu;
+            logger.error("ERRORE CANCELLAZIONE MENù", e);
+        }
+        return new Response(esito, message);
     }
 
 }
