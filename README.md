@@ -26,6 +26,25 @@ Prima di procedere, assicurati di soddisfare i seguenti prerequisiti:
 
 - Avere Java 17 installato e avere le relative variabili d'ambiente (del path) aggiornate alla versione 17.
 
+- Avere installato node.js https://nodejs.org/it/download, almeno la versione 18.14.1
+   - verificare che sia installato con il comando da terminale node -v 
+
+- Avere installato angular:
+   -  globalmente:
+      ```bash
+      npm install -g @angular/cli@16.2.3
+       ```
+      o nella cartella del progetto fe/tutti-a-tavola :
+       ```bash
+      npm install -g @angular/cli@16.2.3
+       ```
+   - dal terminale della directory fe/tutti-a-tavola digitare
+      ```bash
+      npm install
+       ```
+      così da installare tutte le dipendenze.
+    
+
 ## Compilazione e Deploy del Backend
 
 Per compilare e avviare il backend, segui questi passaggi:
