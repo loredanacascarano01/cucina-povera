@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Portata {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_portata")
     private Long id;
 

@@ -3,11 +3,11 @@ CREATE DATABASE tuttiatavola;
 commit;
 use tuttiatavola;
 -- Creazione della tabella MENU
-CREATE TABLE hibernate_sequence (
-                                    id INT NOT NULL AUTO_INCREMENT,
-                                    next_val BIGINT NOT NULL,
-                                    PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS hibernate_sequence (
+    next_val BIGINT
 );
+INSERT INTO hibernate_sequence (next_val) VALUES (1);
+
 
 CREATE TABLE MENU (
                       id_menu INT AUTO_INCREMENT PRIMARY KEY,
@@ -91,3 +91,8 @@ commit;
 ALTER TABLE PORTATE ADD COLUMN id_portata INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
 
 ALTER TABLE CONTIENE ADD COLUMN id_contiene INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+GRANT SELECT, SHOW VIEW, TRIGGER, EVENT, LOCK TABLES ON *.* TO 'root'@'localhost';
+GRANT ALL PRIVILEGES ON tuttiatavola.* TO 'root'@'localhost' ;
+
+FLUSH PRIVILEGES;
+
