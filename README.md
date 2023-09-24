@@ -36,7 +36,7 @@ Prima di procedere, assicurati di soddisfare i seguenti prerequisiti:
        ```
       o nella cartella del progetto fe/tutti-a-tavola :
        ```bash
-      npm install -g @angular/cli@16.2.3
+      npm install @angular/cli@16.2.3
        ```
    - dal terminale della directory fe/tutti-a-tavola digitare
       ```bash
