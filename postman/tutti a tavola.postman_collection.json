@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "0a04cefb-476b-4df8-bb3c-d7cc5bdbf9af",
+		"name": "tutti a tavola",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27409960"
+	},
+	"item": [
+		{
+			"name": "menu",
+			"item": [
+				{
+					"name": "retrieveMenu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/menu"
+					},
+					"response": []
+				},
+				{
+					"name": "retrieveMenuById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/menu/1"
+					},
+					"response": []
+				},
+				{
+					"name": "cancellaMenu",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/menu/5"
+					},
+					"response": []
+				},
+				{
+					"name": "retrieveRicette",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/menu/1"
+					},
+					"response": []
+				},
+				{
+					"name": "recuperaListaSpesaPerMenu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/menu/1"
+					},
+					"response": []
+				},
+				{
+					"name": "creaMenu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titolo\": \"Menu di prova\",\n  \"descrizione\": \"Descrizione del menu di prova\",\n  \"pasti\": [\n    {\n      \"nome\": \"Pranzo\",\n      \"giorno\": \"2023-09-15\",\n      \"note\": \"Note per il pranzo\",\n      \"portate\": [\n        {\n          \"idRicetta\": 1,\n          \"numeroPersone\": 2\n        },\n        {\n          \"idRicetta\": 2,\n          \"numeroPersone\": 3\n        }\n      ]\n    },\n    {\n      \"nome\": \"Cena\",\n      \"giorno\": \"2023-09-15\",\n      \"note\": \"Note per la cena\",\n      \"portate\": [\n        {\n          \"idRicetta\": 3,\n          \"numeroPersone\": 2\n        },\n        {\n          \"idRicetta\": 4,\n          \"numeroPersone\": 3\n        }\n      ]\n    }\n  ]\n}\n"
+						},
+						"url": "http://localhost:8080/api/menu"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
