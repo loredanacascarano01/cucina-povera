@@ -7,7 +7,7 @@ Questo documento fornisce istruzioni per configurare e avviare il progetto in lo
 
 1. Scaricare il repository in locale digitando nella cartella dove si vuole salvare il progetto:
    ```bash
-   git clone https://github.com/loredanacascarano01/cucina-povera.git
+      git clone https://github.com/loredanacascarano01/cucina-povera.git
    ```
 
 2. Il backend si trova nella cartella `tutti-a-tavola`.
