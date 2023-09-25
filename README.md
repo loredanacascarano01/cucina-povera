@@ -1,4 +1,3 @@
-```markdown
 # Configurazione del Progetto in Locale
 
 Questo documento fornisce istruzioni per configurare e avviare il progetto in locale. Assicurati di seguire attentamente i passaggi descritti di seguito.
@@ -19,7 +18,7 @@ Questo documento fornisce istruzioni per configurare e avviare il progetto in lo
 
 Prima di procedere, assicurati di soddisfare i seguenti prerequisiti:
 
-- Aver eseguito gli script `tutti-a-tavola/src/main/resources/db/inizializzazione.sql`.
+- Aver eseguito gli script `tutti-a-tavola/src/main/resources/db/inizializzazione.sql` oppure `tutti-a-tavola/src/main/resources/db/cucina-povera-schema.sql`.
 
 - Aver inserito in `application.properties` (`tutti-a-tavola/src/main/resources/application.properties`) i parametri della propria connessione.
 
